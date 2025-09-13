@@ -163,7 +163,7 @@ def main():
         color = "#dddddd" if val is None else cmap(val)
         return {"fillColor": color, "color": "#aaaaaa", "weight": 0.4, "fillOpacity": 0.85}
 
-    layer_choro = folium.FeatureGroup(name="인구밀도 (색상)", overlay=True, show=False)
+    layer_choro = folium.FeatureGroup(name="인구밀도 (색상)", overlay=True, show=True)
     folium.GeoJson(
         data=json.loads(mg.to_json()),
         name="행정동(색상)",
