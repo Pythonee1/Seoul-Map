@@ -1,5 +1,5 @@
 # cd "C:\Python Custom Programs\Seoul Map"
-
+# https://pythonee1.github.io/Seoul-Map/
 
 # --- Seoul dong hover map with Excel stats ---
 # pip install pandas geopandas folium shapely pyproj requests openpyxl
@@ -10,7 +10,6 @@ import geopandas as gpd
 import folium
 from branca.element import Element
 from folium.plugins import Search, MiniMap, Fullscreen
-from jinja2 import Template
 from branca.colormap import LinearColormap
 
 # 1) Paths
@@ -103,7 +102,7 @@ def main():
     # D) Make display-friendly strings (to avoid raw floats)
     mg["면적_disp"] = mg["면적 (km2)"].astype(float).round(3).astype(str)
     mg["인구_disp"] = mg["인구 (2024)"].apply(format_int)
-    mg["밀도_disp"] = mg["km2당 인구"].astype(float).round(1).map(lambda x: format_int(x).replace(",", ""))  # show as 1 decimal or no comma
+    mg["밀도_disp"] = mg["km2당 인구"].astype(float).round(1).map(lambda x: format_int(x))  # show as 1 decimal or no comma
     # If you prefer comma for density, comment above line and use:
     # mg["밀도_disp"] = mg["km2당 인구"].astype(float).round(1).apply(lambda v: f"{v:,.1f}")
 
